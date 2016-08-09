@@ -1,7 +1,7 @@
-//Craps v2
+//Craps v3
 //By Kevin Donkers, Justin Searle, Richard Estrada
-//This is the second version which has the basic game mechanics using 2 types of bets and the 2 roll phases
-//August 2nd, 2016
+//This is the fourth version which has the functionality to update a users money in the file after each round
+//August 15th, 2016
 
 #include "Header.h"
 
@@ -19,6 +19,9 @@ int main(){
 	}
 
 	//check the username in the user file
+	User user = checkAccount(userName);
+
+	cout << user.fullname << ", " << user.money << ", " << user.username << endl;
 
 	cout << "Welcome to Craps" << endl;
 	cout << "What would you like to bet?" << endl;
