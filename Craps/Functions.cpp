@@ -6,8 +6,8 @@
 #include "Header.h"
 
 //use the std namespace
-using namespace std;
-
+using namespace std; 
+  
 //compete with the computer rolling random dice
 int RollDice(){
 	//vars needed
