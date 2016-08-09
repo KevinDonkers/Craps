@@ -7,7 +7,7 @@
 
 //use the std namespace
 using namespace std;
-
+  
 //compete with the computer rolling random dice
 void RollDice(){
 	//vars needed
