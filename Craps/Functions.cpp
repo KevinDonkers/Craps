@@ -1,4 +1,4 @@
-//Craps v1
+//Craps v2
 //By Kevin Donkers, Justin Searle, Richard Estrada
 //functions.cpp contains all the functions the main will use
 //August 2nd, 2016
@@ -9,7 +9,7 @@
 using namespace std;
 
 //compete with the computer rolling random dice
-void RollDice(){
+int RollDice(){
 	//vars needed
 	int die1;
 	int die2;
@@ -19,7 +19,7 @@ void RollDice(){
 	int const MIN = 1;
 
 	//set random seed
-	srand(time(0));
+	srand(time(NULL));
 
 
 	//generate user rolls
@@ -28,6 +28,8 @@ void RollDice(){
 	total = die1 + die2;
 
 	//output rolls
-	cout << "\n You rolled " << total << " (" << die1 << " & " << die2 << ")\n";
+	cout << "\nYou rolled " << total << " (" << die1 << " & " << die2 << ")\n";
+
+	return total;
 
 } //end of function
