@@ -138,7 +138,7 @@ int calculateWinnings(vector<Bet> bets) {
 
 int findBet(string betName, vector<Bet> bets){
 	for (int i = 0; i < bets.size(); i++) {
-		if (bets.at(i).name == "Pass Line"){
+		if (bets.at(i).name == betName){
 			return i;
 		}
 	}

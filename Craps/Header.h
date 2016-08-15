@@ -28,6 +28,9 @@ struct Bet {
 	string name;
 	int value;
 	bool won;
+	Bet() {
+		won = false;
+	}
 };
 
 struct Roll{
