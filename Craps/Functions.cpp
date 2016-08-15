@@ -9,7 +9,7 @@
 using namespace std; 
   
 //compete with the computer rolling random dice
-int RollDice(){
+Roll RollDice(){
 	//vars needed
 	int die1;
 	int die2;
@@ -27,10 +27,7 @@ int RollDice(){
 	die2 = (rand() % (MAX - MIN + 1)) + 1;
 	total = die1 + die2;
 
-	//output rolls
-	cout << "\nYou rolled " << total << " (" << die1 << " & " << die2 << ")\n";
-
-	return total;
+	return Roll(die1, die2, total);
 
 } //end of function
 
@@ -78,4 +75,72 @@ User checkAccount(string username)
 	return User(username, fullname, 500);
 
 	outfile.close();
+}
+
+void updateUserList(User user) {
+
+	ifstream inputFile;
+	ofstream outputFile;
+	string lineUser, lineName, lineMoney;
+
+	//open temp and user files
+	inputFile.open("users.txt");
+	outputFile.open("temp.txt");
+
+	if (inputFile.is_open() && outputFile.is_open()) {
+
+		//loop through input file
+		while (!inputFile.eof()) {
+
+			//get contents
+			getline(inputFile, lineUser, ',');
+			getline(inputFile, lineName, ',');
+			getline(inputFile, lineMoney, '\n');
+
+			if (!lineUser.empty() && !lineName.empty()) {
+				//stuff here
+				if (user.username == lineUser) {
+					//output user info
+					outputFile << user.username << "," << user.fullname << "," << user.money << "\n";
+				}
+				else {
+					//output file info
+					outputFile << lineUser << "," << lineName << "," << lineMoney << "\n";
+				}
+			}
+		} //end of loop
+	}
+
+	//close file
+	inputFile.close();
+	outputFile.close();
+
+	//rename old file
+	remove("users.txt");
+	rename("temp.txt", "users.txt");
+}
+
+int calculateWinnings(vector<Bet> bets) {
+	int totalWinnings = 0;
+
+	for (int i = 0; i < bets.size(); i++){
+		if (bets.at(i).won){
+			totalWinnings += bets.at(i).value;
+		}
+		else {
+			totalWinnings -= bets.at(i).value;
+		}
+	}
+
+	return totalWinnings;
+
+}
+
+int findBet(string betName, vector<Bet> bets){
+	for (int i = 0; i < bets.size(); i++) {
+		if (bets.at(i).name == "Pass Line"){
+			return i;
+		}
+	}
+	return -1;
 }
