@@ -1,4 +1,4 @@
-//Craps v4
+//Craps v5
 //By Kevin Donkers, Justin Searle, Richard Estrada
 //functions.cpp contains all the functions the main will use
 //August 15th, 2016

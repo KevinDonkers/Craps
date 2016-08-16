@@ -1,6 +1,6 @@
-//Craps v3
+//Craps v5
 //By Kevin Donkers, Justin Searle, Richard Estrada
-//This is the fourth version which has the functionality to update a users money in the file after each round
+//This is the fifth version which has the functionality of multiple bets at different times
 //August 15th, 2016
 
 #include "Header.h"

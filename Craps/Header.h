@@ -1,4 +1,4 @@
-//Craps v4
+//Craps v5
 //By Kevin Donkers, Justin Searle, Richard Estrada
 //This is the header file that contains all the includes structures and prototypes for the program
 //August 15th, 2016
