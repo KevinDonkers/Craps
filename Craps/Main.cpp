@@ -123,7 +123,14 @@ int main(){
 					additionalChoice.name = "ace duece";
 					break;
 			}
-			bets.push_back(additionalChoice);
+
+			//check to see if user has already bet on this
+			if (betIndex = findBet(additionalChoice.name, bets) >= 0) {
+				bets.at(betIndex).value = additionalChoice.value;
+			}
+			else {
+				bets.push_back(additionalChoice);
+			}
 
 			cout << "Type another bet, or 4 to exit" << endl;
 		} //end of additional bet loop
@@ -209,8 +216,14 @@ int main(){
 				additionalChoice.value = subPassValue;
 				additionalChoice.name = "bet " + to_string(subPassChoice);
 				
-				//
-				bets.push_back(additionalChoice);
+				//check to see if user has already bet on this bet
+				if (betIndex = findBet(additionalChoice.name, bets) >= 0) {
+					bets.at(betIndex).value = additionalChoice.value;
+				}
+				else {
+					bets.push_back(additionalChoice);
+				}
+
 				cout << "Type another bet, or 7 to exit" << endl;
 			}
 
